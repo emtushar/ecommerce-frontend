@@ -23,8 +23,7 @@ Before you begin, ensure you have the following installed:
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
-cd <project-directory>
+git clone 'https://github.com/emtushar/ecommerce-frontend'
 ```
 
 2. Install dependencies:
@@ -56,19 +55,16 @@ yarn build
 ```
 src/
 ├── components/           # Reusable UI components
-│   ├── common/          # Shared components used across features
-│   │   ├── Header.jsx
-│   │   └── Filter.jsx
-│   ├── product/         # Product-related components
-│   │   ├── ProductCard.jsx
-│   │   ├── ProductContainer.jsx
-│   │   ├── ProductDetailCard.jsx
-│   │   └── ProductDetailPage.jsx
-│   ├── cart/           # Shopping cart components
-│   │   ├── ShoppingCart.jsx
-│   │   └── CheckoutProcess.jsx
-│   └── search/         # Search-related components
-│       └── SearchPage.jsx
+│
+│   ├── Header.jsx
+│   ├──  Filter.jsx
+│   ├── ProductCard.jsx
+│   ├── ProductContainer.jsx
+│   ├── ProductDetailCard.jsx
+│   ├── ProductDetailPage.jsx
+│   ├── ShoppingCart.jsx          # Shopping cart components
+│   ├──CheckoutProcess.jsx
+│   └── SearchPage.jsx       # Search-related components
 │
 ├── hooks/              # Custom React hooks
 │   ├── useFetchProductDetails.jsx
@@ -76,21 +72,16 @@ src/
 │   └── useFetchSearchResults.jsx
 │
 ├── store/             # Redux store configuration
-│   ├── index.js       # Store setup and configuration
+│   ├── store.js       # Store setup and configuration
 │   └── slices/        # Redux slices
 │       ├── appSlice.js
 │       ├── cartSlice.js
 │       └── orderSlice.js
 │
-├── utils/             # Helper functions and utilities
-│   └── helpers.js
+├── helpers/             # Helper functions and utilities
+│   └── helper.js
 │
-├── services/          # API services and data fetching
-│   └── api.js
-│
-├── styles/           # Global styles and theme configuration
-│   └── index.css
-│
+├── index.css         # Global styles and theme configuration
 ├── App.jsx           # Root application component
 └── main.jsx         # Application entry point
 ```
