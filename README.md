@@ -5,6 +5,9 @@ A modern e-commerce application built with React, Redux Toolkit, and React Route
 Project Live Link:
 https://ecommerce-frontend-seven-phi.vercel.app/
 
+Live Link (Netlify):
+https://jolly-narwhal-76cad5.netlify.app/
+
 ## Technologies Used
 
 - React 18
