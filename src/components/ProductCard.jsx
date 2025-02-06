@@ -32,11 +32,11 @@ function ProductCard({ title, rating, img, price, id }) {
           {title}
         </h2>
         <div className="flex     justify-between text-base lg:text-lg  items-center  text-black">
-          <h3 className="flex justify-center items-center gap-2 ">
+          <h3 className="flex justify-center items-center gap-[2px] lg:gap-2 text-stone-600">
             <FaStar />
             {rating}
           </h3>
-          <h3 className=" text-xl font-sans font-medium">
+          <h3 className="text-lg lg:text-xl  font-sans font-medium">
             Rs.{formatToIndianCurrency(Math.floor(price * 80))}
           </h3>
           <button className=" hover:cursor-pointer" onClick={handleLike}>

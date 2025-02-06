@@ -3,6 +3,8 @@ import { FaStar } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../store/slices/cartSlice.js";
 import { formatToIndianCurrency } from "../helpers/helper.js";
+import { useNavigate } from "react-router-dom";
+import { addOrder } from "../store/slices/orderSlice.js";
 function ProductDetailCard({
   id,
   img,
@@ -13,6 +15,7 @@ function ProductDetailCard({
   category,
 }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cartProducts = useSelector((state) => state.cart);
   const productDetails = {
     id: id,
@@ -28,6 +31,19 @@ function ProductDetailCard({
     if (!cartProducts.find((product) => product.id === id)) {
       dispatch(addProduct(productDetails));
     }
+  };
+  const handleBuyNow = () => {
+    dispatch(
+      addOrder({
+        products: [productDetails],
+        totalPrice: Math.floor(price * 80),
+        totalMRP: Math.floor(price * 80),
+        shippingFee: 100,
+        platformFee: 20,
+        discount: Math.floor(price * 80 * 0.1),
+      })
+    );
+    navigate("/checkout");
   };
 
   return (
@@ -58,7 +74,10 @@ function ProductDetailCard({
             >
               Add to Cart
             </button>
-            <button className="bg-amber-400 transition-all hover:bg-amber-500 hover:text-amber-100  w-40 rounded-lg  text-xl hover:cursor-pointer  text-amber-50 px-5 py-2">
+            <button
+              className="bg-amber-400 transition-all hover:bg-amber-500 hover:text-amber-100  w-40 rounded-lg  text-xl hover:cursor-pointer  text-amber-50 px-5 py-2"
+              onClick={handleBuyNow}
+            >
               Buy Now
             </button>
           </div>

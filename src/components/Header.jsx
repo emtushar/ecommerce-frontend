@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { ShoppingCart, Search, User, Heart } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 function Header() {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
+  const cartCount = useSelector((state) => state.cart.length);
   const handleSearch = () => {
     console.log("search");
     if (search) {
@@ -11,6 +13,7 @@ function Header() {
       navigate(`/search/${search}`);
     }
   };
+
   return (
     <nav className="bg-amber-200 p-3 flex justify-between items-center">
       <Link to={"/"}>
@@ -35,6 +38,15 @@ function Header() {
       <div className=" flex gap-4 lg:gap-16 pr-2">
         <Link to={"/cart"}>
           <ShoppingCart />
+          <div
+            className={
+              cartCount === 0
+                ? "hidden"
+                : "absolute  -mt-8 ml-2 text-sm bg-amber-400  rounded-full w-5 h-5  text-center"
+            }
+          >
+            {cartCount}
+          </div>
         </Link>
         <Heart />
         <User />
