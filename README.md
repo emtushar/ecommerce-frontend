@@ -2,6 +2,9 @@
 
 A modern e-commerce application built with React, Redux Toolkit, and React Router DOM, using Vite as the build tool.
 
+Project Live Link:
+https://ecommerce-frontend-seven-phi.vercel.app/
+
 ## Technologies Used
 
 - React 18
